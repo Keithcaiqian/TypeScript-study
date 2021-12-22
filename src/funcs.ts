@@ -1,5 +1,5 @@
 import { Mark, Color } from "./enums";
-import { Deck } from "./types";
+import { Card, Deck, Joker } from "./types";
 
 export function createDeck():Deck{
     const deck: Deck = [];
@@ -9,10 +9,27 @@ export function createDeck():Deck{
         for (const c of colors) {
             deck.push({
                 color: c,
-                mark: m
-            })
+                mark: m,
+                getString(){
+                    return this.color + this.mark
+                }
+            } as Card);
         }
-    }    
+    }   
+    let joker:Joker = {
+        type: "small",
+        getString(){
+            return "jo"
+        }
+    } 
+    deck.push(joker);
+    joker = {
+        type: "big",
+        getString(){
+            return "Jo"
+        }
+    } 
+    deck.push(joker);
     return deck;
 }
 
@@ -25,7 +42,7 @@ export function printDeck(deck:Deck){
         }else{
             temMark = '\t'
         }
-        res += deck[i].mark + deck[i].color + temMark
+        res += deck[i].getString() + temMark
     }
     console.log(res)
 }
