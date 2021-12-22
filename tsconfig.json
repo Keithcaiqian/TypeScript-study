@@ -4,7 +4,8 @@
     "module": "commonjs", //配置编译目标使用的模块化标准
     "lib": ["es2020"],  //运行的环境  浏览器或是node
     "outDir": "./dist",
-    "strictNullChecks": true 
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true 
   },
   "include": ["./src"],
 }
