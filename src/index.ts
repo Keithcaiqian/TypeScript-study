@@ -1,6 +1,6 @@
-function add(a:number,b:number){
+function add(a:number,c:number){
     return {
-        res: a + b
+        res: a + c
     }
 }
 
